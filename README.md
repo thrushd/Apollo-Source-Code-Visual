@@ -13,7 +13,7 @@ There is some sort of bug which locks the output image size to the size of the s
 ### Output
 
 #### Autumn
-![autumn rocket](output\saturn-v-autumn.png)
+![autumn rocket](https://github.com/thrushd/Apollo-Source-Code-Visual/blob/master/output/saturn-v-autumn.png)
 
 #### Gist Earth
-![autumn rocket](output\saturn-v-gist_earth.png)
+![autumn rocket](https://github.com/thrushd/Apollo-Source-Code-Visual/blob/master/output/saturn-v-gist_earth.png)
