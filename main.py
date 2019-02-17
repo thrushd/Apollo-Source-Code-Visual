@@ -6,10 +6,10 @@ import numpy as np
 from wordcloud import WordCloud, STOPWORDS
 
 # user settings
-directory = Path('Apollo-11-master')
-image = Path('saturn-v-stencil.png')
-font = Path('RobotoMono-Regular.ttf')
-font_path = Path('fonts') / font
+output_directory = Path('output')
+code_directory = Path(r'resources\Apollo-11-master')
+image = Path(r'resources\saturn-v-stencil.png')
+font_path = Path(r'resources\fonts\RobotoMono-Regular.ttf')
 # matplotlib color maps
 colors = ['magma', 'plasma', 'viridis', 'inferno', 'autumn', 'ocean', 'gist_earth']
 width = 8
@@ -17,12 +17,12 @@ height = 24
 dpi = 400
 
 # get code files
-code_files = [f for f in listdir(directory) if isfile(join(directory, f))]
+code_files = [f for f in listdir(code_directory) if isfile(join(code_directory, f))]
 text = ''
 
 # make into one string, removing comments
 for file in code_files:
-    for line in open(directory / file):
+    for line in open(code_directory / file):
         li = line.strip()
         if not li.startswith('#'):
             text = text + line.rstrip()
@@ -43,4 +43,5 @@ wordcloud.generate(text)
 # save in different colors
 for color in colors:
     wordcloud.recolor(random_state=3, colormap=color)
-    wordcloud.to_file(color + '.png')
+    file_name = 'saturn-v-' + color + '.png'
+    wordcloud.to_file(output_directory / file_name)
